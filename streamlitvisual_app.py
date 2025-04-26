@@ -72,9 +72,9 @@ max_prem = df_filtered["PremiumPrice"].max()
 count_records = len(df_filtered)
 
 c1, c2, c3, c4 = st.columns(4)
-c1.metric("Avg Premium", f"${avg_prem:,.0f}")
-c2.metric("Min Premium", f"${min_prem:,.0f}")
-c3.metric("Max Premium", f"${max_prem:,.0f}")
+c1.metric("Avg Premium", f"₹{avg_prem:,.0f}")
+c2.metric("Min Premium", f"₹{min_prem:,.0f}")
+c3.metric("Max Premium", f"₹{max_prem:,.0f}")
 c4.metric("Records", f"{count_records:,}")
 
 # 4. Avg Premium by Risk Level
