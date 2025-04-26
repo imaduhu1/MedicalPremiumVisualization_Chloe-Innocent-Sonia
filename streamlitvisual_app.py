@@ -8,7 +8,7 @@ from sklearn.cluster import KMeans
 
 # Page configuration
 st.set_page_config(page_title="Medical Premium Explorer", layout="wide")
-st.title("🩺 Medical Premium Explorer Dashboard")
+st.title("Medical Premium Explorer Dashboard")
 
 # 1. Load & preprocess data
 df = pd.read_csv("Medicalpremium.csv")
