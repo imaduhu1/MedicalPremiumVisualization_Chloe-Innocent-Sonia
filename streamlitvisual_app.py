@@ -12,6 +12,8 @@ st.title("Medical Premium Explorer Dashboard")
 
 # 1. Load & preprocess data
 df = pd.read_csv("Medicalpremium.csv")
+df["HasMajorSurgery"] = (df["NumberOfMajorSurgeries"].fillna(0).apply(lambda x: 1 if x >= 1 else 0))
+
 
 # 1a. Create AgeGroup bins
 age_bins = [17, 29, 39, 49, 59, 69]
