@@ -15,7 +15,7 @@ df = pd.read_csv("Medicalpremium.csv")
 
 # 1a. Create AgeGroup bins
 age_bins = [17, 29, 39, 49, 59, 69, 100]
-age_labels = ["18–29", "30–39", "40–49", "50–59", "60–69", "70+"]
+age_labels = ["18–29", "30–39", "40–49", "50–59", "60–69"]
 df["AgeGroup"] = pd.cut(df["Age"], bins=age_bins, labels=age_labels)
 
 # 1b. K-means clustering on PremiumPrice to define RiskLevel
