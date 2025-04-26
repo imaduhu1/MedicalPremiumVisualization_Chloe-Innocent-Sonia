@@ -77,39 +77,25 @@ c2.metric("Min Premium", f"${min_prem:,.0f}")
 c3.metric("Max Premium", f"${max_prem:,.0f}")
 c4.metric("Records", f"{count_records:,}")
 
-# 4. Compound chart: Avg Premium & Record Count by Risk Level
-st.subheader("Avg Premium & Record Count by Risk Level")
-
-# build a summary with both metrics
-risk_summary2 = (
+# 4. Avg Premium by Risk Level
+st.subheader("Average Premium by Risk Level")
+risk_summary = (
     df_filtered
-      .groupby("RiskLevel")
-      .agg(
-          AvgPremium=("PremiumPrice","mean"),
-          RecordCount=("PremiumPrice","count")
-      )
+      .groupby("RiskLevel")["PremiumPrice"]
+      .mean()
       .reindex(risk_levels)
       .reset_index()
 )
-
-base = alt.Chart(risk_summary2).encode(
-    x=alt.X("RiskLevel:N", title="Risk Level")
+risk_chart = alt.Chart(risk_summary).mark_bar().encode(
+    x="RiskLevel:N",
+    y="PremiumPrice:Q",
+    color=alt.Color(
+        "RiskLevel:N",
+        scale=alt.Scale(domain=risk_levels, range=["#2ca02c","#ff7f0e","#d62728"])
+    )
 )
+st.altair_chart(risk_chart, use_container_width=True)
 
-# bar for average premium
-bar_prem = base.mark_bar(size=20).encode(
-    y=alt.Y("AvgPremium:Q", axis=alt.Axis(title="Avg Premium ($)"))
-)
-
-# bar for record count (semi‐transparent gray)
-bar_count = base.mark_bar(size=20, opacity=0.5, color="lightgray").encode(
-    y=alt.Y("RecordCount:Q", axis=alt.Axis(title="Record Count"))
-)
-
-# layer them and tell Altair to use independent scales
-compound_chart = alt.layer(bar_prem, bar_count).resolve_scale(y="independent")
-
-st.altair_chart(compound_chart, use_container_width=True)
 
 
 # 5. Avg Premium by Age Group (with optional highlight)
