@@ -77,11 +77,12 @@ c2.metric("Min Premium", f"₹{min_prem:,.0f}")
 c3.metric("Max Premium", f"₹{max_prem:,.0f}")
 c4.metric("Records", f"{count_records:,}")
 
+# 🛠 Add visual divider
+st.divider()
+
 # Additional KPI cards for Risk Level Counts
 st.subheader("Risk Category Counts")
-
 risk_counts = df_filtered["RiskLevel"].value_counts().reindex(risk_levels).fillna(0).astype(int)
-
 r1, r2, r3 = st.columns(3)
 r1.metric("Low Risk", f"{risk_counts.get('Low', 0):,}")
 r2.metric("Moderate Risk", f"{risk_counts.get('Moderate', 0):,}")
