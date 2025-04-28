@@ -17,7 +17,7 @@ st.markdown(
         font-size: 60px;
         font-weight: bold;
         text-align: center;
-        color: #007bff; /* Nice clean blue */
+        color: #007bff !important; /* Force clean blue color */
         animation: moveAndFade 6s ease-in-out infinite;
         margin-top: 20px;
         margin-bottom: 40px;
