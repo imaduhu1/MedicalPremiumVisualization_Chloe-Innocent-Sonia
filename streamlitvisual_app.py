@@ -17,12 +17,12 @@ st.markdown(
         font-size: 60px;
         font-weight: bold;
         text-align: center;
-        background: linear-gradient(90deg, #00c6ff, #0072ff, #00c6ff);
+        background: linear-gradient(90deg, #ff00ff, #ff66cc, #ff00ff);
         background-size: 200% auto;
         color: transparent;
         background-clip: text;
         -webkit-background-clip: text;
-        animation: moveAndFade 5s ease-in-out forwards;
+        animation: moveAndFade 6s ease-in-out infinite;
         margin-top: 20px;
         margin-bottom: 40px;
     }
@@ -30,13 +30,13 @@ st.markdown(
     @keyframes moveAndFade {
         0% {
             transform: translateX(-50%);
-            opacity: 1;
+            opacity: 0;
         }
-        50% {
+        25% {
             transform: translateX(0%);
             opacity: 1;
         }
-        80% {
+        75% {
             transform: translateX(50%);
             opacity: 1;
         }
