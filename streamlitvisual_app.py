@@ -17,11 +17,7 @@ st.markdown(
         font-size: 60px;
         font-weight: bold;
         text-align: center;
-        background: linear-gradient(90deg, #ff00ff, #ff66cc, #ff00ff);
-        background-size: 200% auto;
-        color: transparent;
-        background-clip: text;
-        -webkit-background-clip: text;
+        color: #007bff; /* Nice clean blue */
         animation: moveAndFade 6s ease-in-out infinite;
         margin-top: 20px;
         margin-bottom: 40px;
