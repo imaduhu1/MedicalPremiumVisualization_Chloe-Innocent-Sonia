@@ -8,6 +8,42 @@ from sklearn.cluster import KMeans
 
 # Page configuration
 st.set_page_config(page_title="Medical Premium Explorer", layout="wide")
+
+# Header with Animation
+st.markdown(
+    """
+    <style>
+    .animated-title {
+        font-size: 48px;
+        font-weight: bold;
+        color: #1E90FF;
+        animation: fancyTitle 5s infinite alternate;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    @keyframes fancyTitle {
+        0% {
+            transform: scale(1) rotate(0deg);
+            opacity: 0.7;
+        }
+        50% {
+            transform: scale(1.1) rotate(2deg);
+            opacity: 1;
+        }
+        100% {
+            transform: scale(1) rotate(-2deg);
+            opacity: 0.8;
+        }
+    }
+    </style>
+
+    <h1 class="animated-title">Health Insurance Risk at a Glance</h1>
+    """,
+    unsafe_allow_html=True
+)
+
+# Start of a Dashboard
 st.title("Medical Premium Explorer Dashboard")
 
 # 1. Load & preprocess data
