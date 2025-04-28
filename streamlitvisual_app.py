@@ -13,32 +13,41 @@ st.set_page_config(page_title="Medical Premium Explorer", layout="wide")
 st.markdown(
     """
     <style>
-    .animated-title {
-        font-size: 48px;
+    .fancy-title {
+        font-size: 60px;
         font-weight: bold;
-        color: #1E90FF;
-        animation: fancyTitle 5s infinite alternate;
         text-align: center;
-        margin-bottom: 30px;
+        background: linear-gradient(90deg, #00c6ff, #0072ff, #00c6ff);
+        background-size: 200% auto;
+        color: transparent;
+        background-clip: text;
+        -webkit-background-clip: text;
+        animation: moveAndFade 5s ease-in-out forwards;
+        margin-top: 20px;
+        margin-bottom: 40px;
     }
 
-    @keyframes fancyTitle {
+    @keyframes moveAndFade {
         0% {
-            transform: scale(1) rotate(0deg);
-            opacity: 0.7;
+            transform: translateX(-50%);
+            opacity: 1;
         }
         50% {
-            transform: scale(1.1) rotate(2deg);
+            transform: translateX(0%);
+            opacity: 1;
+        }
+        80% {
+            transform: translateX(50%);
             opacity: 1;
         }
         100% {
-            transform: scale(1) rotate(-2deg);
-            opacity: 0.8;
+            transform: translateX(70%);
+            opacity: 0;
         }
     }
     </style>
 
-    <h1 class="animated-title">Health Insurance Risk at a Glance</h1>
+    <h1 class="fancy-title">Health Insurance Risk at a Glance</h1>
     """,
     unsafe_allow_html=True
 )
