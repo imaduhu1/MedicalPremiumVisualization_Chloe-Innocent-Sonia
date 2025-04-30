@@ -55,7 +55,6 @@ st.title("Medical Premium Explorer Dashboard")
 df = pd.read_csv("Medicalpremium.csv")
 df["HasMajorSurgery"] = (df["NumberOfMajorSurgeries"].fillna(0).apply(lambda x: 1 if x >= 1 else 0))
 
-
 # 1a. Create AgeGroup bins
 age_bins = [17, 29, 39, 49, 59, 69]
 age_labels = ["18–29", "30–39", "40–49", "50–59", "60–69"]
@@ -67,7 +66,7 @@ X_scaled = scaler.fit_transform(df[["PremiumPrice"]])
 kmeans = KMeans(n_clusters=4, random_state=42)
 df["Cluster"] = kmeans.fit_predict(X_scaled)
 
-# Map clusters to risk categories exactly as in your notebook
+# Map clusters to risk categories 
 cluster_map = {
     0: "High",
     1: "Low",
@@ -129,7 +128,6 @@ r1.metric("Low Risk", f"{risk_counts.get('Low', 0):,}")
 r2.metric("Moderate Risk", f"{risk_counts.get('Moderate', 0):,}")
 r3.metric("High Risk", f"{risk_counts.get('High', 0):,}")
 
-
 # 4. Avg Premium by Risk Level
 st.subheader("Average Premium by Risk Level")
 risk_summary = (
@@ -148,8 +146,6 @@ risk_chart = alt.Chart(risk_summary).mark_bar().encode(
     )
 )
 st.altair_chart(risk_chart, use_container_width=True)
-
-
 
 # 5. Avg Premium by Age Group (with optional highlight)
 st.subheader("Avg Premium by Age Group")
