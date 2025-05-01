@@ -26,7 +26,7 @@ The core logic is contained in `streamlitvisual_app.py`, which loads and process
 - Dynamic visualizations of health premium trends
 - Clustering analysis for segmenting clients by risk level
 - Real-time filtering by age group, health conditions, and more
-- Intuitive visuals: heatmaps, boxplots, scatter plots
+- Intuitive visuals: heatmaps, boxplots, bar charts
 
 ---
 
